@@ -59,16 +59,14 @@
                     </a>
                 </li>
 
-
+                <!-- Botón de Tabla de Productos -->
+                <li class="nav-item">
+                    <a href="{{ route('tablaProductos.index') }}" class="nav-link" target="frameprincipal">
+                        <i class="nav-icon fas fa-boxes"></i>
+                        <p>Productos</p>
+                    </a>
+                </li>
             </ul>
         </nav>
-
-
     </div>
 </aside>
-
-
-
-
-
-
