@@ -263,14 +263,5 @@
                     toastr.error('Error al guardar');
                 });
         }
-
-
-
-
-
-
     </script>
-
-
-
 @stop

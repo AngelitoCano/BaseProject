@@ -1,5 +1,4 @@
-@extends('backend.menus.superior')
-@section('content')
+<section class="content">
 <div class="container">
     <h1>Crear Nuevo Producto</h1>
 
@@ -37,7 +36,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>
-        <a href="{{ route('tablaProductos.index') }}" class="btn btn-secondary">Cancelar</a>
+        <a href="{{ route('tablaProductos.indexProductos') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
-@endsection
+</section>

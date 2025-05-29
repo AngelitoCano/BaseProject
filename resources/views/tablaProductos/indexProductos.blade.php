@@ -1,6 +1,4 @@
-@extends('backend.menus.superior')
-
-@section('content')
+<Section class="content"> 
 <div class="container">
     <h1>Lista de Productos</h1>
 
@@ -46,14 +44,16 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('tablaProductos.edit', $product->id) }}" class="btn btn-sm btn-warning">
-                                <i class="fas fa-edit"></i>
+                            <a href="{{ route('tablaProductos.edit', ['tablaProducto' => $product->id]) }}"
+                                class="btn btn-sm btn-warning" role="button">
+                                <i class="fas fa-edit"></i> Editar Producto
                             </a>
+                            
                             <form action="{{ route('tablaProductos.destroy', $product->id) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar este producto?')">
-                                    <i class="fas fa-trash"></i>
+                                    <i class="fas fa-trash">Elimiar producto</i>
                                 </button>
                             </form>
                         </td>
@@ -70,4 +70,4 @@
         <div class="alert alert-info">No hay productos registrados</div>
     @endif
 </div>
-@endsection
+</Section>

@@ -11,6 +11,8 @@ use App\Http\Controllers\Backend\Registro\RegistroController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CalculadoraController;
 use App\Http\Controllers\tablaProductoController;
+use PhpParser\Builder\Use_;
+use App\Models\Product;
 
 use App\Http\Controllers\Backend\Dashboard\DashboardController;
 
@@ -22,16 +24,15 @@ Route::post('/calculadora', [CalculadoraController::class, 'calcular'])->name('s
 // Productos route
 Route::get('/productos', [ProductoController::class, 'mostrarProductos']);
 Route::get('/productos', [ProductoController::class, 'mostrarProductos'])->name('productos');
-Route::resource('tablaProductos', tablaProductoController::class)
-    ->names([
-        'index' => 'tablaProductos.index',
-        'create' => 'tablaProductos.create',
-        'store' => 'tablaProductos.store',
-        'show' => 'tablaProductos.show',
-        'edit' => 'tablaProductos.edit',
-        'update' => 'tablaProductos.update',
-        'destroy' => 'tablaProductos.destroy'
-    ]);
+Route::resource('tablaProductos', tablaProductoController::class)->names([
+    'index' => 'tablaProductos.indexProductos',
+    'create' => 'tablaProductos.create',
+    'store' => 'tablaProductos.store',
+    'show' => 'tablaProductos.show',
+    'edit' => 'tablaProductos.edit',
+    'update' => 'tablaProductos.update',
+    'destroy' => 'tablaProductos.destroy'
+]);
 
 // --- LOGIN ---
 
