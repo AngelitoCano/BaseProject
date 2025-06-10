@@ -36,8 +36,8 @@ class tablaProductoController extends Controller{
                 $validated['image'] = $request->file('image')->store('products', 'public');
             }
 
-            Product::create($validated);
-
+            $product= Product::create($validated);
+            
             return redirect()->route('tablaProductos.indexProductos')
                 ->with('success', 'Producto creado exitosamente');
                 
@@ -56,7 +56,7 @@ class tablaProductoController extends Controller{
         ]);
     }
 
-    public function update(Request $request, $id) // Cambiamos a recibir solo el ID
+    public function update(Request $request, $id) 
     {
         try {
             $validated = $request->validate([
