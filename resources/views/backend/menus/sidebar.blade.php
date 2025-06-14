@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="#" class="brand-link">
@@ -37,22 +38,33 @@
                             </a>
                         </li>
 
+                        <!-- Botón de Tabla de Productos -->
+                        <li class="nav-item">
+                            <a href="{{ route('tablaProductos.indexProductos') }}" class="nav-link" target="frameprincipal">
+                                <i class="nav-icon fas fa-boxes"></i>
+                                <p>Productos</p>
+                            </a>
+                        </li>
                     </ul>
                  </li>
                 @endcan
 
+                <!-- Botón de Productos -->
+                <li class="nav-item">
+                    <a href="{{ route('tablaProductos.usuarioProductos') }}" class="nav-link" target="frameprincipal"> <!-- Usa route() correctamente -->
+                    <i class="fa-solid fa-cart-shopping"></i>
+                        <p>Lista de Productos</p>
+                    </a>
+                </li>
 
-
-
+                <!-- Botón de Calculadora -->
+                <li class="nav-item">
+                    <a href="{{ route('calculadora') }}" class="nav-link" target="frameprincipal"> <!-- Usa route() correctamente -->
+                        <i class="nav-icon fas fa-calculator"></i>
+                        <p>Calculadora</p>
+                    </a>
+                </li>
             </ul>
         </nav>
-
-
     </div>
 </aside>
-
-
-
-
-
-

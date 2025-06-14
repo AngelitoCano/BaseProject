@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogo>
+<producto>
+        <imagen>/images/producto1.webp</imagen>
+        <nombre>Televisor Samsung 75 Pulgadas</nombre>
+        <descripcion>Smartv Samsung de 75 pulgadas 4K</descripcion>
+        <precio>659.99</precio>
+        <categoria>Electrónica</categoria>
+</producto>
+
+<producto>
+    <imagen>/images/producto2.jpg</imagen>
+    <nombre>Televisor LG 70 Pulgadas</nombre>
+    <descripcion>Smart TV LG UHD de 70 pulgadas 4K con webOS</descripcion>
+    <precio>629.99</precio>
+    <categoria>Electrónica</categoria>
+</producto>
+
+<producto>
+    <imagen>/images/producto3.jpg</imagen>
+    <nombre>Laptop HP Pavilion 15</nombre>
+    <descripcion>Portátil HP de 15.6 pulgadas con procesador Intel i7 y 16GB RAM, con pantalla tactil</descripcion>
+    <precio>749.99</precio>
+    <categoria>Electrónica</categoria>
+</producto>
+
+<producto>
+    <imagen>/images/producto4.webp</imagen>
+    <nombre>Tablet Samsung Galaxy Tab S9</nombre>
+    <descripcion>Tablet Samsung de 11 pulgadas con pantalla AMOLED y 128GB de almacenamiento</descripcion>
+    <precio>599.99</precio>
+    <categoria>Electrónica</categoria>
+</producto>
+
+<producto>
+    <imagen>/images/producto5.webp</imagen>
+    <nombre>Consola PlayStation 5</nombre>
+    <descripcion>Consola Sony PS5 con lector de discos y mando DualSense</descripcion>
+    <precio>499.99</precio>
+    <categoria>Electrónica</categoria>
+</producto>
+
+<producto>
+    <imagen>/images/producto6.jpg</imagen>
+    <nombre>Monitor Gamer ASUS 32"</nombre>
+    <descripcion>Monitor curvo ASUS de 32 pulgadas 165Hz 2K para juegos</descripcion>
+    <precio>389.99</precio>
+    <categoria>Electrónica</categoria>
+</producto>
+
+<producto>
+    <imagen>/images/producto7.avif</imagen>
+    <nombre>iPad Pro 12.9"</nombre>
+    <descripcion>Apple iPad Pro 12.9 pulgadas con chip M2 y 256GB</descripcion>
+    <precio>1049.99</precio>
+    <categoria>Electrónica</categoria>
+</producto>
+
+<producto>
+    <imagen>/images/producto8.png</imagen>
+    <nombre>Smartphone Samsung Galaxy S24</nombre>
+    <descripcion>Teléfono inteligente Samsung de 6.8 pulgadas con cámara triple</descripcion>
+    <precio>899.99</precio>
+    <categoria>Electrónica</categoria>
+</producto>
+
+<producto>
+    <imagen>/images/producto9.jpg</imagen>
+    <nombre>Proyector Epson Home Cinema</nombre>
+    <descripcion>Proyector Epson 4K para cine en casa con 3000 lúmenes</descripcion>
+    <precio>699.99</precio>
+    <categoria>Electrónica</categoria>
+</producto>
+
+<producto>
+    <imagen>/images/producto10.jpg</imagen>
+    <nombre>Barra de Sonido Bose 700</nombre>
+    <descripcion>Barra de sonido con subwoofer inalámbrico y control por voz</descripcion>
+    <precio>649.99</precio>
+    <categoria>Electrónica</categoria>
+</producto>
+
+<producto>
+    <imagen>/images/producto11.png</imagen>
+    <nombre>Cámara Canon EOS R50</nombre>
+    <descripcion>Cámara sin espejo Canon con lente 18-45mm y grabación 4K</descripcion>
+    <precio>949.99</precio>
+    <categoria>Electrónica</categoria>
+</producto>
+
+</catalogo>
+
