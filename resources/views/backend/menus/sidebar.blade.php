@@ -38,14 +38,20 @@
                             </a>
                         </li>
 
+                        <!-- Botón de Tabla de Productos -->
+                        <li class="nav-item">
+                            <a href="{{ route('tablaProductos.indexProductos') }}" class="nav-link" target="frameprincipal">
+                                <i class="nav-icon fas fa-boxes"></i>
+                                <p>Productos</p>
+                            </a>
+                        </li>
                     </ul>
                  </li>
                 @endcan
 
-
                 <!-- Botón de Productos -->
                 <li class="nav-item">
-                    <a href="{{ route('productos') }}" class="nav-link" target="frameprincipal"> <!-- Usa route() correctamente -->
+                    <a href="{{ route('tablaProductos.usuarioProductos') }}" class="nav-link" target="frameprincipal"> <!-- Usa route() correctamente -->
                     <i class="fa-solid fa-cart-shopping"></i>
                         <p>Lista de Productos</p>
                     </a>
@@ -56,14 +62,6 @@
                     <a href="{{ route('calculadora') }}" class="nav-link" target="frameprincipal"> <!-- Usa route() correctamente -->
                         <i class="nav-icon fas fa-calculator"></i>
                         <p>Calculadora</p>
-                    </a>
-                </li>
-
-                <!-- Botón de Tabla de Productos -->
-                <li class="nav-item">
-                    <a href="{{ route('tablaProductos.indexProductos') }}" class="nav-link" target="frameprincipal">
-                        <i class="nav-icon fas fa-boxes"></i>
-                        <p>Productos</p>
                     </a>
                 </li>
             </ul>

@@ -9,9 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
 class tablaProductoController extends Controller{
-    public function index()
-    {
-        $products = Product::with('category')->paginate(10);
+    public function index(){
+        $products = Product::with('category')->paginate(12); // Cambia el número según necesites
         return view('tablaProductos.indexProductos', compact('products'));
     }
 
@@ -108,5 +107,11 @@ class tablaProductoController extends Controller{
         } catch (\Exception $e) {
             return back()->with('error', 'Error: '.$e->getMessage());
         }
+    }
+
+    public function usuarioProductos()
+    {
+        $products = Product::with('category')->paginate(12); // o los que necesites
+        return view('tablaProductos.usuarioProductos', compact('products'));
     }
 }

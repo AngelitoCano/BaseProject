@@ -8,7 +8,6 @@ use App\Http\Controllers\Backend\Roles\PermisoController;
 use App\Http\Controllers\Backend\Perfil\PerfilController;
 use App\Http\Controllers\Backend\Configuracion\ConfiguracionController;
 use App\Http\Controllers\Backend\Registro\RegistroController;
-use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CalculadoraController;
 use App\Http\Controllers\tablaProductoController;
 use PhpParser\Builder\Use_;
@@ -22,8 +21,7 @@ Route::get('/calculadora', [CalculadoraController::class, 'formulario'])->name('
 Route::post('/calculadora', [CalculadoraController::class, 'calcular'])->name('soap.calcular');
 
 // Productos route
-Route::get('/productos', [ProductoController::class, 'mostrarProductos']);
-Route::get('/productos', [ProductoController::class, 'mostrarProductos'])->name('productos');
+Route::get('tablaProductos/usuario', [tablaProductoController::class, 'usuarioProductos'])->name('tablaProductos.usuarioProductos');
 Route::resource('tablaProductos', tablaProductoController::class)->names([
     'index' => 'tablaProductos.indexProductos',
     'create' => 'tablaProductos.create',
