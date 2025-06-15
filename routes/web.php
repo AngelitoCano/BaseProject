@@ -10,10 +10,25 @@ use App\Http\Controllers\Backend\Configuracion\ConfiguracionController;
 use App\Http\Controllers\Backend\Registro\RegistroController;
 use App\Http\Controllers\CalculadoraController;
 use App\Http\Controllers\tablaProductoController;
+use App\Http\Controllers\CartController;
 use PhpParser\Builder\Use_;
 use App\Models\Product;
 
 use App\Http\Controllers\Backend\Dashboard\DashboardController;
+
+
+//ruta del carrito
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
+
+// ✅ Ruta que falta: eliminar un producto del carrito
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+// ✅ Ruta para vaciar el carrito
+Route::post('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
+
+Route::patch('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
 
 
 //calculadora

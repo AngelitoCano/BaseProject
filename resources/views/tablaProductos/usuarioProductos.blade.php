@@ -18,6 +18,12 @@
                         <img src="https://via.placeholder.com/300x200.png?text=Sin+Imagen" class="card-img-top" alt="No image">
                     @endif
 
+                    <form action="{{ route('cart.add') }}" method="POST" class="p-3">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <button type="submit" class="btn btn-success w-100">Agregar al carrito 🛒</button>
+                    </form>
+
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text"><strong>Precio:</strong> ${{ number_format($product->price, 2) }}</p>
@@ -36,6 +42,10 @@
         {{ $products->links() }}
     </div>
 </div>
+
+<a href="{{ route('cart.show') }}" class="btn btn-primary cart-float-button">
+    🛒 Ver Carrito
+</a>
 
 <style>
     .card {
@@ -63,6 +73,25 @@
 
     .card:hover .overlay-description {
         transform: translateY(0%);
+    }
+
+    /*boton carrito*/
+    .cart-float-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        border-radius: 50px;
+        padding: 12px 18px;
+        font-size: 1rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        transition: all 0.3s ease;
+    }
+
+    .cart-float-button:hover {
+        background-color: #0056b3;
+        text-decoration: none;
+        transform: scale(1.05);
     }
 </style>
 </section>
