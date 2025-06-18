@@ -35,7 +35,7 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
                         @foreach($products as $product)
                             <tr>
@@ -46,7 +46,6 @@
                                 <td>{{ $product->category->name ?? 'Sin categoría' }}</td>
                                 <td>
                               @php
-                                use Illuminate\Support\Str;
                             @endphp
 
                             @if($product->image && Str::startsWith($product->image, 'data:image'))
