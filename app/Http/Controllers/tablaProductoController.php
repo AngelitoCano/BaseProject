@@ -71,6 +71,7 @@ class tablaProductoController extends Controller
 
             $product = Product::findOrFail($id);
 
+            
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $imageData = base64_encode(file_get_contents($image));

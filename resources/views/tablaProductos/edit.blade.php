@@ -75,6 +75,7 @@
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
 
+                
                 @if($product->image)
                     <div class="mt-3">
                         <img src="{!! $product->image !!}" width="100" class="img-thumbnail">
