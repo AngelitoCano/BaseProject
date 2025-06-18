@@ -44,11 +44,19 @@
                                 <td><span class="badge bg-info">${{ number_format($product->price, 2) }}</span></td>
                                 <td>{{ $product->category->name ?? 'Sin categoría' }}</td>
                                 <td>
-                                    @if($product->image)
-                                        <img src="{{ asset('storage/'.$product->image) }}" width="60" class="rounded shadow-sm">
-                                    @else
-                                        <span class="text-muted">Sin imagen</span>
-                                    @endif
+                              @php
+                                use Illuminate\Support\Str;
+                            @endphp
+
+                            @if($product->image && Str::startsWith($product->image, 'data:image'))
+                                {!! '<img src="'.$product->image.'" width="150" class="rounded shadow-sm">' !!}
+                            @elseif($product->image)
+                               <img src="{!! $product->image !!}" width="150" class="rounded shadow-sm">
+                            @else
+                                <span class="text-muted">Sin imagen</span>
+                            @endif
+
+
                                 </td>
                                 <td>
                                     <a href="{{ route('tablaProductos.edit', $product->id) }}" class="btn btn-warning btn-sm mb-1">

@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
-class tablaProductoController extends Controller{
-    public function index(){
-        $products = Product::with('category')->paginate(12); // Cambia el número según necesites
+class tablaProductoController extends Controller
+{
+    public function index()
+    {
+        $products = Product::with('category')->paginate(12);
         return view('tablaProductos.indexProductos', compact('products'));
     }
 
@@ -32,17 +33,19 @@ class tablaProductoController extends Controller{
 
         try {
             if ($request->hasFile('image')) {
-                $validated['image'] = $request->file('image')->store('products', 'public');
+                $image = $request->file('image');
+                $imageData = base64_encode(file_get_contents($image));
+                $mime = $image->getMimeType();
+               $validated['image'] = "data:$mime;base64,$imageData";
             }
 
-            $product= Product::create($validated);
-            
+            Product::create($validated);
+
             return redirect()->route('tablaProductos.indexProductos')
                 ->with('success', 'Producto creado exitosamente');
-                
         } catch (\Exception $e) {
             return back()->withInput()
-                ->with('error', 'Error al crear el producto: '.$e->getMessage());
+                ->with('error', 'Error al crear el producto: ' . $e->getMessage());
         }
     }
 
@@ -55,7 +58,7 @@ class tablaProductoController extends Controller{
         ]);
     }
 
-    public function update(Request $request, $id) 
+    public function update(Request $request, $id)
     {
         try {
             $validated = $request->validate([
@@ -66,52 +69,45 @@ class tablaProductoController extends Controller{
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
 
-            // Primero obtenemos el producto para manejar la imagen
-            $product = DB::table('products')->where('id', $id)->first();
+            $product = Product::findOrFail($id);
 
             if ($request->hasFile('image')) {
-                // Eliminar imagen anterior si existe
-                if ($product->image) {
-                    Storage::disk('public')->delete($product->image);
-                }
-                $validated['image'] = $request->file('image')->store('products', 'public');
+                $image = $request->file('image');
+                $imageData = base64_encode(file_get_contents($image));
+                $mime = $image->getMimeType();
+              $validated['image'] = "data:$mime;base64,$imageData";
             } else {
-                // Mantener la imagen existente si no se sube nueva
                 unset($validated['image']);
             }
 
-            // Actualización directa con DB
-            DB::table('products')
-                ->where('id', $id)
-                ->update($validated);
+            $product->update($validated);
 
             return redirect()->route('tablaProductos.indexProductos')
-                        ->with('success', 'Producto actualizado exitosamente');
-
+                ->with('success', 'Producto actualizado exitosamente');
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', 'Error al actualizar: '.$e->getMessage());
+            return back()->withInput()->with('error', 'Error al actualizar: ' . $e->getMessage());
         }
     }
+
     public function destroy($id)
     {
         try {
-            $deleted = DB::table('products')->where('id', $id)->delete();
-            
-            if($deleted) {
+            $deleted = Product::destroy($id);
+
+            if ($deleted) {
                 return redirect()->route('tablaProductos.indexProductos')
                     ->with('success', 'Producto eliminado');
             }
-            
+
             throw new \Exception("No se pudo borrar el registro");
-            
         } catch (\Exception $e) {
-            return back()->with('error', 'Error: '.$e->getMessage());
+            return back()->with('error', 'Error: ' . $e->getMessage());
         }
     }
 
     public function usuarioProductos()
     {
-        $products = Product::with('category')->paginate(12); // o los que necesites
+        $products = Product::with('category')->paginate(12);
         return view('tablaProductos.usuarioProductos', compact('products'));
     }
 }

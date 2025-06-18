@@ -77,7 +77,7 @@
 
                 @if($product->image)
                     <div class="mt-3">
-                        <img src="{{ asset('storage/'.$product->image) }}" width="100" class="img-thumbnail">
+                        <img src="{!! $product->image !!}" width="100" class="img-thumbnail">
                         <div class="form-check mt-2">
                             <input class="form-check-input" type="checkbox"
                                    id="remove_image" name="remove_image">

@@ -13,7 +13,7 @@
             <div class="col">
                 <div class="card h-100 shadow-sm border-0 position-relative">
                     @if ($product->image)
-                        <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="{{ $product->name }}" style="object-fit: cover; height: 200px;">
+                       <img src="{!! $product->image !!}" class="card-img-top" alt="{{ $product->name }}" style="object-fit: cover; height: 200px;">
                     @else
                         <img src="https://via.placeholder.com/300x200.png?text=Sin+Imagen" class="card-img-top" alt="No image">
                     @endif
